@@ -56,7 +56,7 @@ class AdsPageState extends State<AdsPage> {
     /// please add your own device testingId
     /// (testingId will print in console if you don't provide  )
     FacebookAudienceNetwork.init(
-      testingId: "a77955ee-3304-4635-be65-81029b0f5201",
+      testingId: "d909a9b2-147d-444a-9d06-caa27637a826",
       iOSAdvertiserTrackingEnabled: true,
     );
 
@@ -158,7 +158,10 @@ class AdsPageState extends State<AdsPage> {
     return Padding(
       padding: EdgeInsets.all(8),
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: () {
+          print("onPressed: $title");
+          onPressed?.call();
+        },
         child: Text(
           title,
           textAlign: TextAlign.center,
@@ -182,12 +185,13 @@ class AdsPageState extends State<AdsPage> {
   }
 
   _showBannerAd() {
+    print("showBannerAd");
     setState(() {
       _currentAd = FacebookBannerAd(
         // placementId: "YOUR_PLACEMENT_ID",
         placementId:
-            "IMG_16_9_APP_INSTALL#2312433698835503_2964944860251047", //testid
-        bannerSize: BannerSize.STANDARD,
+            "IMG_16_9_APP_INSTALL#3974078972862037_3976434542626480", //testid
+        bannerSize: BannerSize.MEDIUM_RECTANGLE,
         listener: (result, value) {
           print("Banner Ad: $result -->  $value");
         },
