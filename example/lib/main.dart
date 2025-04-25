@@ -56,12 +56,12 @@ class AdsPageState extends State<AdsPage> {
     /// please add your own device testingId
     /// (testingId will print in console if you don't provide  )
     FacebookAudienceNetwork.init(
-      testingId: "d909a9b2-147d-444a-9d06-caa27637a826",
+      testingId: "a4de0928-9472-4667-94a2-b6af25eee84e",
       iOSAdvertiserTrackingEnabled: true,
     );
 
-    _loadInterstitialAd();
-    _loadRewardedVideoAd();
+    // _loadInterstitialAd();
+    // _loadRewardedVideoAd();
   }
 
   void _loadInterstitialAd() {
@@ -86,7 +86,8 @@ class AdsPageState extends State<AdsPage> {
 
   void _loadRewardedVideoAd() {
     FacebookRewardedVideoAd.loadRewardedVideoAd(
-      placementId: "YOUR_PLACEMENT_ID",
+      placementId:
+          "VID_HD_16_9_46S_APP_INSTALL#2312433698835503_2650502525028617",
       listener: (result, value) {
         print("Rewarded Ad: $result --> $value");
         if (result == RewardedVideoAdResult.LOADED) _isRewardedAdLoaded = true;
@@ -128,7 +129,16 @@ class AdsPageState extends State<AdsPage> {
         Flexible(
           child: Align(
             alignment: Alignment(0, 1.0),
-            child: _currentAd,
+            // child: _currentAd,
+            child: FacebookBannerAd(
+              // placementId: "YOUR_PLACEMENT_ID",
+              placementId:
+                  "IMG_16_9_APP_INSTALL#3974078972862037_3976434542626480", //testid
+              bannerSize: BannerSize.MEDIUM_RECTANGLE,
+              listener: (result, value) {
+                print("Banner Ad: $result -->  $value");
+              },
+            ),
           ),
           fit: FlexFit.tight,
           flex: 3,

@@ -103,7 +103,7 @@ class _FacebookBannerAdState extends State<FacebookBannerAd>
     if (defaultTargetPlatform == TargetPlatform.android) {
       return Container(
         height: containerHeight,
-        color: Colors.red,
+        color: Colors.transparent,
         child: AndroidView(
           viewType: BANNER_AD_CHANNEL,
           onPlatformViewCreated: _onBannerAdViewCreated,
