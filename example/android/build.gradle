@@ -13,6 +13,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://maven.facebook.com/maven2/" }
     }
 
     // Fix for Kotlin version conflicts
